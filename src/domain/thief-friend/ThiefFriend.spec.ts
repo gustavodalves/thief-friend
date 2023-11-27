@@ -43,4 +43,16 @@ describe('Thief Friend', () => {
         expect(findPerson("g@icloud.com")).toBeTruthy()
         expect(findPerson("Pedro@gamil.com")).toBeTruthy()
     })
+
+    it("should not be able order two times", () => {
+        const thiefFriend = ThiefFriend.create(
+            'example', new Date('2023-11-29')
+        )
+
+        thiefFriend.registerPerson("Gustavo", "g@icloud.com")
+        thiefFriend.registerPerson("pedro", "Pedro@gamil.com")
+
+        thiefFriend.drawPersons()
+        expect(() => thiefFriend.drawPersons()).toThrow()
+    })
 })

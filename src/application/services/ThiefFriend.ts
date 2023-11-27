@@ -38,5 +38,6 @@ export default class ThiefFriendService {
         ))
         
         await Promise.all(mailPromises)
+        await this.thiefFriendRepository.update(thiefFriend)
     }
 }
